@@ -3,6 +3,19 @@ BtnMenu
 
 Simple bundle to provide nested menu using yml with extension to twig.
 
+Install:
+"require": {
+    "bitnoise/menu-bundle": "dev-master"
+},
+"repositories": [
+    {
+        "type": "vcs",
+        "url":  "git@github.com:Bitnoise/BtnMenuBundle.git"
+    }
+],
+
+
+
 Todo:
 - create configuration validation
 - create abstract menu provider (now works only with yaml)
