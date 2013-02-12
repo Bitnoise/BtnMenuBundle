@@ -1,0 +1,11 @@
+services:
+    btn.menu:
+        class: Btn\MenuBundle\Provider\MenuProvider
+        arguments:
+            menu: '%btn_menu%'
+            container: '@service_container'
+    btn.menu.twig.extension:
+        class: Btn\MenuBundle\Extension\MenuTwigExtension
+        arguments: [ '@btn.menu' ]
+        tags:
+          - { name: twig.extension }
