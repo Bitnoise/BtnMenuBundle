@@ -1,0 +1,24 @@
+{
+    "name": "bitnoise/menu-bundle",
+    "type": "symfony-bundle",
+    "description": "The BtnMenuBundle add super simple multi level menu managment from yaml",
+    "keywords": [ "bitnoise", "utilities", "menu"],
+    "homepage": "https://github.com/Bitnoise/BtnMenuBundle",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Bitnoise Team",
+            "homepage": "http://www.bitnoi.se/",
+            "email": "labs@bitnoi.se"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.*",
+    },
+    "autoload": {
+        "psr-0": { "Btn\\MenuBundle": "" }
+    },
+    "target-dir": "Btn/MenuBundle"
+}
