@@ -4,6 +4,7 @@ BtnMenu
 Simple bundle to provide nested menu using yml with extension to twig.
 
 Install:
+```json
 "require": {
     "bitnoise/menu-bundle": "dev-master"
 },
@@ -13,7 +14,7 @@ Install:
         "url":  "git@github.com:Bitnoise/BtnMenuBundle.git"
     }
 ],
-
+```
 
 
 Todo:
@@ -24,6 +25,7 @@ Todo:
 
 Temporary - menu can be created now using following structure in config.yml (or parameters.yml):
 
+```yaml
 parameters:
     btn_menu:
         -
@@ -39,3 +41,4 @@ parameters:
         -
             route: admin_templates
             name:  Admin
+```
