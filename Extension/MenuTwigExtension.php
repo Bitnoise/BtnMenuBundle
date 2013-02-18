@@ -34,10 +34,10 @@ class MenuTwigExtension extends \Twig_Extension
         );
     }
 
-    public function retrieve($level = null) {
+    public function retrieve($route = '', $level = null) {
 
         //retrieve menu from service
-        $menu = $this->menu->retrieve($level);
+        $menu = $this->menu->retrieve($route, $level);
 
         return $menu;
     }

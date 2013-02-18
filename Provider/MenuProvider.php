@@ -35,12 +35,10 @@ class MenuProvider
      * @param  ServiceContainer $container
      * @return void
      **/
-    public function __construct($menu, $container)
+    public function __construct($menu)
     {
         //menu injected from config file
         $this->menu         = $menu;
-        $this->container    = $container;
-        $this->currentRoute = $this->container->get('request')->get('_route');
     }
 
     /**
@@ -48,8 +46,9 @@ class MenuProvider
      *
      * @return array $menu
      **/
-    public function retrieve($level = null)
+    public function retrieve($route = '', $level = null)
     {
+        $this->currentRoute = $route;
         //mark some items as active based on the current route name
         $this->markActive($this->menu);
 
