@@ -29,6 +29,13 @@ class MenuProvider
     private $container;
 
     /**
+     * Current route
+     *
+     * @var string $currentRoute
+     **/
+    private $currentRoute;
+
+    /**
      * Constructor injection
      *
      * @param  array $menu
@@ -48,7 +55,11 @@ class MenuProvider
      **/
     public function retrieve($route = '', $level = null)
     {
-        $this->currentRoute = $route;
+        //if current route is not set
+        if (!$this->currentRoute) {
+            $this->currentRoute = $route;
+        }
+
         //mark some items as active based on the current route name
         $this->markActive($this->menu);
 
@@ -60,6 +71,18 @@ class MenuProvider
 
         //return whole menu
         return $this->menu;
+    }
+
+    /**
+     * Set current route name to be marked as active
+     * settable from ie. controller
+     *
+     * @param  string $route
+     * @return boid
+     **/
+    public function setCurrentRoute($route = '')
+    {
+        $this->currentRoute = $route;
     }
 
     /**
