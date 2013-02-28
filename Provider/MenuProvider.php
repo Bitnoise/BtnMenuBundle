@@ -36,6 +36,13 @@ class MenuProvider
     private $currentRoute;
 
     /**
+     * User roles - optional
+     *
+     * @var array $userRoles
+     **/
+    private $userRoles;
+
+    /**
      * Constructor injection
      *
      * @param  array $menu
@@ -53,12 +60,15 @@ class MenuProvider
      *
      * @return array $menu
      **/
-    public function retrieve($route = '', $level = null)
+    public function retrieve($route = '', $level = null, $roles = null)
     {
         //if current route is not set
         if (!$this->currentRoute) {
             $this->currentRoute = $route;
         }
+
+        //if some user roles are passed
+        $this->userRoles = $roles;
 
         //mark some items as active based on the current route name
         $this->markActive($this->menu);
@@ -95,7 +105,15 @@ class MenuProvider
      **/
     private function markActive(&$childrens, &$parents = array()) {
         //for each children
-        foreach ($childrens as &$item) {
+        foreach ($childrens as $key => &$item) {
+
+            //check roles
+            if (isset($item['role']) && is_array($this->userRoles) && !in_array($item['role'], $this->userRoles)) {
+                // ldd($item);
+                unset($childrens[$key]);
+                // ld($childrens[$key]);
+            }
+
             //set current level
             $item['level']  = count($parents) + 1;
             //mark item as inactive by default
